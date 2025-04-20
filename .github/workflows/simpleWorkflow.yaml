@@ -1,9 +1,21 @@
 name: workflow overview
 
 on: 
- workflow_dispatch
-
+ workflow_dispatch:
+ push:
+   branches:
+    - main
+    
 jobs:
+ my_self_hosted_jobs:
+  name: my self hosted job
+  runs-on: self hosted
+  steps:
+   - name: step in a self hosted runner
+     id: selfHostId
+     shell: cmd
+     run:
+      echo "this is multline comment"
  a_simple_job:
   name: my sample job name
   runs-on: ubuntu-latest
